@@ -4,7 +4,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { Link, NavLink } from "react-router-dom";
 import {useState} from 'react';
 import axios from 'axios';
- 
+import Header from "./Header";
+
 const Signup=()=>{
  
     const paperStyle={padding :20,height:'70vh',width:280, margin:"20px auto"}
@@ -18,7 +19,7 @@ const Signup=()=>{
         password:""
       });
       
-      const {name, email,password} = user;
+      const {nombre, email,password} = user;
       const onInputChange = e => {
         setUser({ ...user, [e.target.name]: e.target.value });
       };
@@ -26,6 +27,8 @@ const Signup=()=>{
    async function  signup()
        {
         let result = await axios.post("http://localhost:8000/api/register",user);
+        console.log(user);
+
         setErrors('Registration Successful')
         setUser({nombre:"",email:"",password:""}) // To Clear all fields
  
@@ -33,6 +36,8 @@ const Signup=()=>{
      
     return(
         <Grid>
+                      <Header/>
+
             <Paper elevation={10} style={paperStyle}>
                 <Grid align='center'>
                      <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
@@ -40,7 +45,7 @@ const Signup=()=>{
                     <h3 style={{color:"green"}}>{errors}</h3>
                 </Grid>
                 
-                <TextField label='Name' name="name" value={name} onChange={e => onInputChange(e)} placeholder='Enter Name' type='text' fullWidth required/>
+                <TextField label='Name' name="nombre" value={nombre} onChange={e => onInputChange(e)} placeholder='Enter Name' type='text' fullWidth required/>
                 <TextField label='Email'  name="email" value={email}  onChange={e => onInputChange(e)} placeholder='Enter Email' type='text' fullWidth required/>
                 <TextField label='Password'  name="password" value={password}  onChange={e => onInputChange(e)} placeholder='Enter password' type='password' fullWidth required/>
              

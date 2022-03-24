@@ -71,7 +71,7 @@ const Login=()=>{
                 <Button type='submit' onClick={signIn} color='primary' variant="contained" style={btnstyle} fullWidth>Sign in</Button>
               
                 <Typography > Don't Have Account ?
-                  <NavLink to="Signup">
+                  <NavLink to="../Signup">
                    <span style={{marginLeft:"4px"}}>Singup</span>
                   </NavLink>
                 </Typography>
