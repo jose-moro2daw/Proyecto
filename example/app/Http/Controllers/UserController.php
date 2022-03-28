@@ -55,7 +55,7 @@ class UserController extends Controller
                     'password' => $req->password,
                     'created_at' => $user->created_at,
                 ]),
-                Mail::to($user->email)->send(new registro($us))
+               Mail::to($user->email)->send(new registro($us))
             ]);
         }
 

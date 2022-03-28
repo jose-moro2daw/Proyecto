@@ -33,10 +33,12 @@ if(document.getElementById("pass").checked){
     e.preventDefault();
     setUser({ ...user, [e.target.name]: e.target.value });
   }
-
+  axios.defaults.withCredentials = true;
+  axios.defaults.baseURL = "http://localhost:8000";
   async function signIn(e) {
-    axios.get("/sanctum/csrf-cookie").then((response) => {
+ //axios.get("/sanctum/csrf-cookie").then((response) => {
       axios.post("api/reactlogin", user).then((res) => {
+        console.log("-------------------")
         if (res.data.validation_errors != undefined) {
           if (res.data.validation_errors.email == "The email field is required.") {
             res.data.validation_errors.email = "Email requerido";
@@ -53,9 +55,10 @@ if(document.getElementById("pass").checked){
         }
 
         if (res.data.status === 200) {
+
           setUser({ ...user, errorList:[]});
-           localStorage.setItem('toke',res.data.token)
-           localStorage.setItem('username',res.data.name)
+           localStorage.setItem('toke',res.data.toke)
+           localStorage.setItem('username',res.data.username)
            Swal.fire({
             icon: 'success',
             title: res.data.message,
@@ -84,7 +87,7 @@ if(document.getElementById("pass").checked){
         console.log(res);
       });
  
-    });
+   // });
   }
 
   return (

@@ -6,7 +6,7 @@
     <title>Registro</title>
 </head>
 <body>
-    <p>Hola! Se ha creado tu usaurio a las {{ $user['created_at']}}.</p>
+    <p>Hola! Se ha creado tu usuario a las {{ $user['created_at']}}.</p>
     <p>Estos son tus datos:</p>
     <ul>
         <li>Nombre: {{$user['name'] }}</li>
