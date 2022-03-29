@@ -6,6 +6,11 @@ import { useNavigate, useParams } from "react-router-dom";
 const btnstyle={margin:'8px 0',background:'red' }
 
 function Header (){
+
+
+
+
+  
   let navigate  = useNavigate(); 
   var sesiones="";
 

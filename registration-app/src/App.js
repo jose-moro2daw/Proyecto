@@ -1,9 +1,17 @@
 
 import './App.css';
-import { BrowserRouter as Router, Navigate, Route,Routes} from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Login from "./components/IniciarSesion";
 import Signup from "./components/Registro";
 import Home from "./components/Home";
+import Error404 from "./components/error";
+import Header from "./components/Header"
+
 import axios from "axios";
 
 axios.defaults.baseURL="http://localhost:8000/";
@@ -19,19 +27,39 @@ return config;
 
 })
 
+const Acceso=({children}) =>{
+if(localStorage.getItem('toke')==null){
+
+return <Navigate to ='/login'/>
+
+}
+return children;
+
+
+}
+
+
+
 function App() {
   return (
-    <Router>
-    <div className="App">
+
+
+    <BrowserRouter> 
+    <Header/>
       <Routes>
-        <Route exact path="/"  element={localStorage.getItem('toke') ? <Navigate to={<Home/>}/>:<Login/>}  />
-      
-        <Route  path="/Login" element={localStorage.getItem('toke') ? <Navigate to={<Home/>}/>:<Login/>} />
-        <Route  path="/registro" element={localStorage.getItem('toke') ? <Navigate to={<Home/>}/>:<Signup/>} />
+        <Route exact path="/"  element={<Acceso><Home/></Acceso>}/> 
+        <Route  path="/login" element={<Login/>} />
+        <Route  path="/signup" element={<Signup/>} />
+        <Route  path="*"         element={
+        <main style={{ padding: "1rem" }}>
+           <Navigate to ='/error'/>
+        </main>
+      }
+    />
+        <Route  path="/error" element={<Error404/>} />
 
       </Routes>
-    </div>
-  </Router>
+  </BrowserRouter>
   );
 }
  

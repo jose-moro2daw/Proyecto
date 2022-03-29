@@ -127,6 +127,17 @@ if (!Hash::check($req->password, $user->password)) {
 
 }
 
+function usuarios(Request $req){
 
+    $user = User::all();
+ 
+    return response()->json([
+        'status' => 200,
+        
+        'password'=>'',
+        
+
+    ]);
+}
 
 }

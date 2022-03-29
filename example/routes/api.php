@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoriaController;
+
 use App\Http\Controllers\AuthController;
 
 /*
@@ -23,4 +25,5 @@ Route::post('/register',[UserController::class,'register']); // Singup URL
 Route::post('/reactlogin',[UserController::class,'login']);
 Route::post('/usuario',[UserController::class,'usuario']);
 
+Route::get('/categorias',[CategoriaController::class,'categorias']);
 

@@ -36,7 +36,7 @@ if(document.getElementById("pass").checked){
   axios.defaults.withCredentials = true;
   axios.defaults.baseURL = "http://localhost:8000";
   async function signIn(e) {
- //axios.get("/sanctum/csrf-cookie").then((response) => {
+ axios.get("/sanctum/csrf-cookie").then((response) => {
       axios.post("api/reactlogin", user).then((res) => {
         console.log("-------------------")
         if (res.data.validation_errors != undefined) {
@@ -87,7 +87,7 @@ if(document.getElementById("pass").checked){
         console.log(res);
       });
  
-   // });
+    });
   }
 
   return (
@@ -141,7 +141,7 @@ if(document.getElementById("pass").checked){
 
         <Typography>
           {" "}
-          Don't Have Account ?
+          No tienes cuenta?
           <NavLink to="../Signup">
             <span style={{ marginLeft: "4px" }}>Registrarte</span>
           </NavLink>

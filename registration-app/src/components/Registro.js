@@ -70,8 +70,6 @@ const Signup = () => {
 
   return (
     <Grid>
-      <Header />
-
       <Paper elevation={10} style={paperStyle}>
         <Grid align="center">
           <Avatar style={avatarStyle}>
@@ -123,11 +121,11 @@ const Signup = () => {
           style={btnstyle}
           fullWidth
         >
-          Singup
+          Registro
         </Button>
 
         <Typography>
-          Click Here for
+          Si tienes cuenta dale click
           <NavLink to="/Login">
             <span style={{ marginLeft: "4px" }}>Login</span>
           </NavLink>
