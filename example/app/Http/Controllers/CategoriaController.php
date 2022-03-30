@@ -17,17 +17,10 @@ class CategoriaController extends Controller
     function categorias()
     {
     
-            $cat = Categoria::all();
-                return response()->json([
-                    'status' => 200,
-                    'categoria' => $cat ,
-                    'message' => 'Caregoria correcta',
-
-                ]);
-            
-        }
+         return   $cat = Categoria::all();
+          
     }
 
-
+}
 
 

@@ -23,7 +23,7 @@ function Header (){
   }
     if(localStorage.getItem('toke')){
       sesiones=(
-      <Button type='submit' onClick={logout} color='primary' justifyContent="flex-end" variant="contained" style={btnstyle} >Salir</Button>
+      <Button type='submit' onClick={logout} color='primary'  variant="contained" style={btnstyle} >Salir</Button>
       )
     }else{
       sesiones=("");
@@ -63,7 +63,7 @@ return (
           className="me-2 "
           aria-label="Search"
         />
-        <Button variant="contained" size="lg" active>Buscar</Button>
+        <Button variant="contained"  >Buscar</Button>
       </Form>
         {sesiones}
     </Navbar.Collapse>
